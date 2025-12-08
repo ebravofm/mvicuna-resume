@@ -1,3 +1,5 @@
+import { MyRuntimeProvider } from './MyRuntimeProvider';
+import { AssistantModal } from 'src/components/assistant-ui/assistant-modal';
 import { personal } from '@content';
 import { Metadata, Viewport } from 'next';
 import { ThemeProvider } from 'next-themes';
@@ -71,11 +73,14 @@ export default function RootLayout({ children }: PropsWithChildren): ReactNode {
     >
       <body className="bg-neutral-1 text-neutral-12 selection:bg-accent-11 selection:text-neutral-1">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="space-y-12">
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </div>
+          <MyRuntimeProvider>
+            <div className="space-y-12">
+              <Header />
+              <main>{children}</main>
+              <Footer />
+            </div>
+            <AssistantModal />
+          </MyRuntimeProvider>
         </ThemeProvider>
       </body>
     </html>

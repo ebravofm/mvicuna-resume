@@ -22,6 +22,7 @@ const buttonVariants = cva(
       variant: {
         solid: '',
         outline: 'border',
+        ghost: '',
       },
     },
     compoundVariants: [
@@ -60,6 +61,22 @@ const buttonVariants = cva(
         variant: 'outline',
         class:
           'border-danger-7 bg-danger-1 text-danger-11 ring-danger-8 hocus:border-danger-8',
+      },
+      // GHOSTS
+      {
+        color: 'neutral',
+        variant: 'ghost',
+        class: 'bg-transparent text-neutral-11 ring-neutral-8 hocus:bg-neutral-4',
+      },
+      {
+        color: 'accent',
+        variant: 'ghost',
+        class: 'bg-transparent text-accent-11 ring-accent-8 hocus:bg-accent-4',
+      },
+      {
+        color: 'danger',
+        variant: 'ghost',
+        class: 'bg-transparent text-danger-11 ring-danger-8 hocus:bg-danger-4',
       },
     ],
     defaultVariants: {
