@@ -1,7 +1,15 @@
 ---
-title: Hobbies & Interests
+title: Intereses y Reconocimientos
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue lacus viverra vitae congue. Neque viverra justo nec ultrices. Urna nunc id cursus metus aliquam eleifend mi in nulla. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra.
+**Reconocimientos:**
+- Premio Excelencia, Vicepresidencia de Proyectos Codelco (2018)
+- Premio Mejor Alumna, Diplomado Contract Management (2012)
+- Premio Mejor trabajadora joven, Outotec Chile (2009)
+- Premio Compromiso Social Universitario, USACH (1996-1998)
 
-All Markdown files will be rendered as rich text, so you can include features such as [links](#).
+**Intereses:**
+- **Tecnología e IA:** Interés activo en nuevas aplicaciones y tendencias.
+- **Viajes:** Experiencia en 51 países, alta adaptabilidad multicultural.
+- **Deportes:** Buceo (Snorkeling) en diversos océanos y Pilates académico.
+- **Gastronomía:** Sommelier (Curso Avanzado de Vinos), Certificación en Té y Meditación.
