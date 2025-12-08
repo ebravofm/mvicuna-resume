@@ -1,5 +1,6 @@
 import { personal } from '@content';
 import { ReactNode } from 'react';
+import AudioCVButton from 'src/components/audio/audio-cv-button';
 import { Heading } from 'src/components/heading/heading';
 import PDFDownloadButton from 'src/components/pdf/pdf-download-button';
 import { ThemeToggle } from 'src/components/theme-toggle/theme-toggle';
@@ -16,7 +17,10 @@ export default function Header(): ReactNode {
               {personal.title}
             </Heading>
           </div>
-          <PDFDownloadButton />
+          <div className="flex flex-col gap-4">
+            <PDFDownloadButton />
+            <AudioCVButton />
+          </div>
           <ThemeToggle
             buttonTextVisible={false}
             labelButton="Select theme"
