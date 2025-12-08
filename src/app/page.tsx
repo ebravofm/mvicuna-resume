@@ -12,9 +12,19 @@ export default function Page(): ReactNode {
     <div className="container space-y-12">
       <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
         <AboutMe className="md:col-span-2" />
-        <ContactInformation />
-        <Skills className="md:col-span-3" />
+        <div className="overflow-hidden rounded-xl">
+          <Image
+            alt="Profile Picture"
+            className="h-auto w-full object-cover"
+            height={1164}
+            src="https://res.cloudinary.com/dddrdmyfc/image/upload/v1765161081/2_oj0n08.jpg"
+            width={832}
+          />
+        </div>
       </div>
+
+      <ContactInformation />
+      <Skills />
 
       <div className="overflow-hidden rounded-xl">
         <Image

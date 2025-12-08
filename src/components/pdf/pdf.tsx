@@ -358,12 +358,12 @@ export default function PDF({ privateInformation }: PDFProperties): ReactNode {
                 <CircleCheck size={fontSizes.m} />
                 <Text>Habilidades y Competencias</Text>
               </View>
-              {allSkills.map((skill, skillIndex) => (
+              {allSkills.map((skill) => (
                 <View key={skill._id}>
                   <View style={styles.itemHeading}>
                     <View style={styles.sectionHeadingStars}>
                       {Array.from({
-                        length: allSkills.length - skillIndex,
+                        length: 1,
                       }).map((star, starIndex) => (
                         <Star key={starIndex} size={fontSizes.xxs} />
                       ))}

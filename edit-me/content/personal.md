@@ -6,4 +6,6 @@ location: Chile
 linkedInUrl: https://linkedin.com/in/mvicunag
 ---
 
-Ingeniera Civil Industrial con MBA y Máster en Gestión y Dirección de Proyectos, con más de 20 años de experiencia, principalmente en minería. Especialista en gestión de contratos, abastecimiento y compras, con experiencia en transformación digital, integración tecnológica y liderazgo de equipos. Certificada en metodologías ágiles (Scrum Master y Foundation) y Facilitadora SENCE. En esta etapa busco enfocar mi experiencia en investigación e innovación, promoviendo modelos de gestión tecnológica enfocados en ética, bienestar y sostenibilidad mediante IA.
+Ingeniera Civil Industrial con MBA, Máster en Gestión y Dirección de Proyectos y Diplomado en Contract Management, certificada en metodologías ágiles y Facilitadora REUF de SENCE. Poseo más de 20 años de experiencia profesional, 14 de ellos en la industria minera, gestionando proyectos complejos, contratos, abastecimiento, transformación digital e innovación, y generando resultados tangibles en eficiencia y colaboración de equipos multidisciplinarios.
+
+Actualmente busco seguir desarrollando mi carrera enfocada en investigación e innovación, aportando modelos de gestión tecnológica que prioricen la ética, el bienestar y la sostenibilidad en organizaciones industriales, especialmente mediante la integración de la IA. 

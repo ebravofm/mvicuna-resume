@@ -1,7 +1,6 @@
 import { PrivateField, personal } from '@content';
 import { IdentificationIcon } from '@heroicons/react/24/solid';
 import { SiGithub, SiLinkedIn } from '@icons';
-import Image from 'next/image';
 import { ReactNode } from 'react';
 import SectionHeading from 'src/components/section-heading/section-heading';
 
@@ -14,16 +13,6 @@ export default function ContactInformation({
 }: ContactInformationProperties): ReactNode {
   return (
     <article className="space-y-4">
-      <div className="overflow-hidden rounded-xl">
-        <Image
-          alt="Profile Picture"
-          className="h-auto w-full object-cover"
-          height={1164}
-          src="https://res.cloudinary.com/dddrdmyfc/image/upload/v1765161081/2_oj0n08.jpg"
-          width={832}
-        />
-      </div>
-
       <SectionHeading
         Icon={IdentificationIcon}
         level={3}
