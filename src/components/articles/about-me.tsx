@@ -11,19 +11,19 @@ interface AboutMeProperties {
 export default function AboutMe({ salary }: AboutMeProperties): ReactNode {
   return (
     <article className="space-y-4">
-      <SectionHeading Icon={UserIcon} level={3} text="About Me" />
+      <SectionHeading Icon={UserIcon} level={3} text="Sobre Mí" />
       <Prose html={personal.body.html} />
 
       {salary && (
         <div className="space-y-1">
           {salary.currentSalary && (
             <div>
-              <strong>Current salary:</strong> {salary.currentSalary}
+              <strong>Salario actual:</strong> {salary.currentSalary}
             </div>
           )}
           {salary.desiredSalary && (
             <div>
-              <strong>Desired salary:</strong> {salary.desiredSalary}
+              <strong>Salario deseado:</strong> {salary.desiredSalary}
             </div>
           )}
         </div>

@@ -13,7 +13,7 @@ export default function Achievements(): ReactNode {
           className="justify-center"
           Icon={AcademicCapIcon}
           level={2}
-          text="Achievements"
+          text="Formación y Logros"
         />
 
         {sortedAchievements.map((achievement) => (

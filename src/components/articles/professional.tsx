@@ -13,7 +13,7 @@ export default function Professional(): ReactNode {
           className="justify-center"
           Icon={BriefcaseIcon}
           level={2}
-          text="Professional Experience"
+          text="Experiencia Profesional"
         />
 
         {sortedProfessionalExperiences.map((professional) => (

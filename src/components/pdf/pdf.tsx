@@ -286,7 +286,7 @@ function ProfessionalExperienceDetails({
           {professionalExperience.titles.map((title, index) => (
             <Text key={index} style={styles.itemSubheadingItalic}>
               {title.title}, {getFormattedDate(title.startDate)}—
-              {title.endDate ? getFormattedDate(title.endDate) : 'Current'}
+              {title.endDate ? getFormattedDate(title.endDate) : 'Actual'}
             </Text>
           ))}
         </View>
@@ -313,17 +313,17 @@ export default function PDF({ privateInformation }: PDFProperties): ReactNode {
             <View style={styles.section}>
               <View style={styles.sectionHeadingNonHTML}>
                 <CircleUser size={fontSizes.m} />
-                <Text>About Me</Text>
+                <Text>Sobre Mí</Text>
               </View>
               <Html {...htmlProperties}>{personal.body.html}</Html>
             </View>
             <View style={styles.section}>
               <View style={styles.sectionHeadingNonHTML}>
                 <CircleIdCard size={fontSizes.m} />
-                <Text>Contact Information</Text>
+                <Text>Información de Contacto</Text>
               </View>
               <View style={styles.flexRow}>
-                <Text style={styles.bold}>Location:</Text>
+                <Text style={styles.bold}>Ubicación:</Text>
                 <Text>&nbsp;{personal.location}</Text>
               </View>
               {privateInformation?.map((privateField) => (
@@ -356,7 +356,7 @@ export default function PDF({ privateInformation }: PDFProperties): ReactNode {
             <View style={styles.section}>
               <View style={styles.sectionHeading}>
                 <CircleCheck size={fontSizes.m} />
-                <Text>Skills &amp; Expertise</Text>
+                <Text>Habilidades y Competencias</Text>
               </View>
               {allSkills.map((skill, skillIndex) => (
                 <View key={skill._id}>
@@ -380,7 +380,7 @@ export default function PDF({ privateInformation }: PDFProperties): ReactNode {
           <View style={styles.section}>
             <View style={styles.sectionHeading}>
               <CircleBriefcase size={fontSizes.m} />
-              <Text>Professional Experience</Text>
+              <Text>Experiencia Profesional</Text>
             </View>
             {sortedProfessionalExperiences.map((professionalExperience) => (
               <View key={professionalExperience._id}>
@@ -399,7 +399,7 @@ export default function PDF({ privateInformation }: PDFProperties): ReactNode {
           <View style={styles.section}>
             <View style={styles.sectionHeading}>
               <CircleGraduationCap size={fontSizes.m} />
-              <Text>Achievements</Text>
+              <Text>Formación y Logros</Text>
             </View>
             {sortedAchievements.map((achievement) => (
               <View key={achievement._id}>

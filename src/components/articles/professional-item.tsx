@@ -33,7 +33,7 @@ export default function ProfessionalItem({
               </div>
               <div className="text-neutral-11 text-sm leading-none tracking-wide">
                 {getFormattedDate(title.startDate)}–
-                {title.endDate ? getFormattedDate(title.endDate) : 'Current'}
+                {title.endDate ? getFormattedDate(title.endDate) : 'Actual'}
               </div>
               {title.description && (
                 <p className="text-sm">{title.description}</p>

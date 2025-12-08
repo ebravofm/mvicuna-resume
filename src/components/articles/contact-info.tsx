@@ -16,12 +16,12 @@ export default function ContactInformation({
       <SectionHeading
         Icon={IdentificationIcon}
         level={3}
-        text="Contact Information"
+        text="Información de Contacto"
       />
 
       <ul className="space-y-1">
         <li>
-          <strong>Location:</strong> {personal.location}
+          <strong>Ubicación:</strong> {personal.location}
         </li>
 
         {/* private access required */}
