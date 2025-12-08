@@ -12,7 +12,7 @@ export default function PDFDownloadButton(): ReactNode {
     <Button asChild size="lg">
       <a href={secret ? `/api/pdf?secret=${secret}` : '/api/pdf'}>
         <DocumentIcon />
-        View or Download PDF
+        Ver o descargar PDF
       </a>
     </Button>
   );
