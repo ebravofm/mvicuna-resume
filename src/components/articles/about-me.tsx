@@ -6,11 +6,12 @@ import SectionHeading from 'src/components/section-heading/section-heading';
 
 interface AboutMeProperties {
   salary?: Salary;
+  className?: string;
 }
 
-export default function AboutMe({ salary }: AboutMeProperties): ReactNode {
+export default function AboutMe({ salary, className }: AboutMeProperties): ReactNode {
   return (
-    <article className="space-y-4">
+    <article className={`space-y-4 ${className ?? ''}`}>
       <SectionHeading Icon={UserIcon} level={3} text="Sobre Mí" />
       <Prose html={personal.body.html} />
 

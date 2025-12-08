@@ -6,9 +6,13 @@ import Prose from 'src/components/prose/prose';
 import SectionHeading from 'src/components/section-heading/section-heading';
 import StarRating from 'src/components/star-rating/star-rating';
 
-export default function Skills(): ReactNode {
+interface SkillsProperties {
+  className?: string;
+}
+
+export default function Skills({ className }: SkillsProperties): ReactNode {
   return (
-    <article className="space-y-4 md:col-span-2">
+    <article className={`space-y-4 ${className ?? 'md:col-span-3'}`}>
       <SectionHeading
         Icon={CheckIcon}
         level={3}

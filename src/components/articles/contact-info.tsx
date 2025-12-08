@@ -16,7 +16,7 @@ export default function ContactInformation({
       <SectionHeading
         Icon={IdentificationIcon}
         level={3}
-        text="Información de Contacto"
+        text="Contacto"
       />
 
       <ul className="space-y-1">

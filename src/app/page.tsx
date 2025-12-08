@@ -9,10 +9,10 @@ import Skills from 'src/components/articles/skills';
 export default function Page(): ReactNode {
   return (
     <div className="container space-y-12">
-      <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-        <AboutMe />
+      <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+        <AboutMe className="md:col-span-2" />
         <ContactInformation />
-        <Skills />
+        <Skills className="md:col-span-3" />
       </div>
 
       <Professional />

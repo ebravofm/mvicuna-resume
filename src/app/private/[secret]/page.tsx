@@ -26,10 +26,10 @@ export default async function Page(
 
   return (
     <div className="container space-y-12">
-      <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-        <AboutMe salary={privateSalary} />
+      <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+        <AboutMe salary={privateSalary} className="md:col-span-2" />
         <ContactInformation privateInformation={privateInformation} />
-        <Skills />
+        <Skills className="md:col-span-3" />
       </div>
 
       <Professional />

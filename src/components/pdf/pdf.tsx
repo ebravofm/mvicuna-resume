@@ -320,7 +320,7 @@ export default function PDF({ privateInformation }: PDFProperties): ReactNode {
             <View style={styles.section}>
               <View style={styles.sectionHeadingNonHTML}>
                 <CircleIdCard size={fontSizes.m} />
-                <Text>Información de Contacto</Text>
+                <Text>Contacto</Text>
               </View>
               <View style={styles.flexRow}>
                 <Text style={styles.bold}>Ubicación:</Text>
