@@ -10,25 +10,27 @@ export default function Header(): ReactNode {
   return (
     <header className="border-neutral-6 bg-neutral-1 border-b py-12">
       <div className="container">
-        <div className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
-          <div className="flex-1 space-y-2">
+        <div className="grid grid-cols-1 gap-12 text-center md:grid-cols-3 md:text-left">
+          <div className="space-y-2 md:col-span-2">
             <Heading level={1}>{fullName}</Heading>
             <Heading color="muted" className="text-balance" level={2}>
               {personal.title}
             </Heading>
           </div>
-          <div className="flex flex-col gap-4">
-            <PDFDownloadButton />
-            <AudioCVButton />
+          <div className="flex flex-col items-center gap-4 md:items-start">
+            <div className="flex flex-col gap-4 w-full">
+              <PDFDownloadButton />
+              <AudioCVButton />
+            </div>
+            {/* <ThemeToggle
+              buttonTextVisible={false}
+              labelButton="Select theme"
+              labelMenu="Select theme"
+              themeNameDark="Dark"
+              themeNameLight="Light"
+              themeNameSystem="System"
+            /> */}
           </div>
-          <ThemeToggle
-            buttonTextVisible={false}
-            labelButton="Select theme"
-            labelMenu="Select theme"
-            themeNameDark="Dark"
-            themeNameLight="Light"
-            themeNameSystem="System"
-          />
         </div>
       </div>
     </header>

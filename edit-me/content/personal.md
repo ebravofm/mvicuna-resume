@@ -2,7 +2,7 @@
 givenName: Maricela
 familyName: Vicuña
 title: Dirección Estratégica de Proyectos
-location: Chile
+location: Santiago, Chile
 linkedInUrl: https://linkedin.com/in/mvicunag
 ---
 
