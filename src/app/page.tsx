@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { ReactNode } from 'react';
 import AboutMe from 'src/components/articles/about-me';
 import Achievements from 'src/components/articles/achievements';
@@ -13,6 +14,16 @@ export default function Page(): ReactNode {
         <AboutMe className="md:col-span-2" />
         <ContactInformation />
         <Skills className="md:col-span-3" />
+      </div>
+
+      <div className="overflow-hidden rounded-xl">
+        <Image
+          alt="Work Environment"
+          className="h-auto w-full object-cover"
+          height={2538}
+          src="https://res.cloudinary.com/dddrdmyfc/image/upload/v1765161081/3_tsdnzu.jpg"
+          width={3480}
+        />
       </div>
 
       <Professional />
