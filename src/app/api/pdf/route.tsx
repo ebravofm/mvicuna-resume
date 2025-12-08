@@ -14,7 +14,9 @@ export async function GET(request: Request): Promise<NextResponse> {
     if (secret !== privateKey) {
       return new NextResponse('Not authorized', { status: 401 });
     }
-    privateInformation = allPrivateFields;
+    privateInformation = allPrivateFields.filter(
+      (field) => !field._id.includes('00-WARNING'),
+    );
   }
 
   const pdfStream = await renderToBuffer(

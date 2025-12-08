@@ -21,7 +21,9 @@ export default async function Page(
     return notFound();
   }
 
-  const privateInformation = allPrivateFields;
+  const privateInformation = allPrivateFields.filter(
+    (field) => !field._id.includes('00-WARNING'),
+  );
   const privateSalary = salary;
 
   return (

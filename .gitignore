@@ -50,3 +50,7 @@ tsconfig.tsbuildinfo
 
 # Contentlayer
 .contentlayer
+
+# Private fields (email, phone, etc.) - DO NOT COMMIT
+edit-me/content/private-fields/*.md
+!edit-me/content/private-fields/00-WARNING.md
