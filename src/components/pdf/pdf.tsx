@@ -32,7 +32,6 @@ import Star from 'src/components/pdf/icons/star';
 import { getAccentColor, getNeutralColor } from 'src/helpers/colors';
 import {
   fullName,
-  getFormattedDate,
   sortedAchievements,
   sortedProfessionalExperiences,
 } from 'src/helpers/utilities';
@@ -281,6 +280,7 @@ function ProfessionalExperienceDetails({
 }: ProfessionExperienceProperties): ReactNode {
   return (
     <>
+      {/* Fechas ocultas
       <View style={styles.itemSubheadingRow}>
         <View style={styles.itemSubheadingSubRow}>
           {professionalExperience.titles.map((title, index) => (
@@ -291,6 +291,7 @@ function ProfessionalExperienceDetails({
           ))}
         </View>
       </View>
+      */}
     </>
   );
 }
