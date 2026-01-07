@@ -6,5 +6,5 @@ titles:
     endDate: 1999/06
 ---
 
-- Realicé auditoría técnica y documental, recabando información para respaldo judicial en litigio internacional por construcción minera.
+- Realicé auditoría técnica y documental, recabando información para respaldo judicial en litigio internacional por altos costos en la construcción de la minera.
 

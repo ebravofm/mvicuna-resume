@@ -1,11 +1,11 @@
 ---
 givenName: Maricela
-familyName: Vicuña
-title: Dirección Estratégica de Proyectos
+familyName: Vicuña Garretón
+title: Profesional Senior en Contratos y Abastecimiento
 location: Santiago, Chile
-linkedInUrl: https://linkedin.com/in/mvicunag
+linkedInUrl: www.linkedin.com/in/vicunag 
 ---
 
-Ingeniera Civil Industrial con MBA, Máster en Gestión y Dirección de Proyectos y Diplomado en Contract Management, certificada en metodologías ágiles y Facilitadora REUF de SENCE. Poseo más de 20 años de experiencia profesional, 14 de ellos en la industria minera, gestionando proyectos complejos, contratos, abastecimiento, transformación digital e innovación, y generando resultados tangibles en eficiencia y colaboración de equipos multidisciplinarios.
+Ingeniera Senior con más de 20 años de experiencia profesional, 14 de ellos gestionando y liderando proyectos estructurales brownfield y greenfield en la minería del cobre, en áreas de contratos, abastecimiento, transformación digital e innovación. He entregado resultados concretos en eficiencia operativa y en la articulación de equipos multidisciplinarios.
 
-Actualmente busco seguir desarrollando mi carrera enfocada en investigación e innovación, aportando modelos de gestión tecnológica que prioricen la ética, el bienestar y la sostenibilidad en organizaciones industriales, especialmente mediante la integración de la IA. 
+Actualmente busco seguir desarrollando mi carrera en áreas de abastecimiento y, en paralelo, enfocar esfuerzos en investigación e innovación, aportando modelos de gestión tecnológica que prioricen la ética, el bienestar y la sostenibilidad en organizaciones industriales, especialmente mediante la integración de la IA.

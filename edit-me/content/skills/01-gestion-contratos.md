@@ -1,6 +1,7 @@
 ---
-title: Gestión de Contratos y Abastecimiento
+title: Gestión de Contractual
 ---
 
-Gestión integral de contratos mineros, Licitaciones públicas y privadas, Negociación estratégica, Gestión de reclamos (Claims), Control documental, Evaluación de proveedores, Optimización de compras.
+- Gestión estratégica de contratos de servicios, ingeniería, construcción y EPC/LLI: Priorización de paquetes críticos (servicios de ingeniería, obras tempranas, montaje), elaboración de bases de licitación, evaluaciones técnico‑comerciales, negociaciones, adjudicaciones y aprobaciones corporativas MAF/SIC.  
+- Coordinación con ingeniería y contratistas para asegurar trazabilidad técnica, mitigación de riesgos y resolución de conflictos, manteniendo competitividad y cumplimiento normativo.
 
