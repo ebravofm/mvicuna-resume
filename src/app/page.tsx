@@ -10,31 +10,22 @@ import Skills from 'src/components/articles/skills';
 export default function Page(): ReactNode {
   return (
     <div className="container space-y-12">
-      <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
-        <AboutMe className="md:col-span-2" />
+      <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+        <AboutMe />
         <div className="overflow-hidden rounded-xl">
+          {/* URL original respaldada: https://res.cloudinary.com/dddrdmyfc/image/upload/v1765161081/2_oj0n08.jpg */}
           <Image
             alt="Profile Picture"
             className="h-auto w-full object-cover"
-            height={1164}
-            src="https://res.cloudinary.com/dddrdmyfc/image/upload/v1765161081/2_oj0n08.jpg"
-            width={832}
+            height={2538}
+            src="/profile.jpg"
+            width={1904}
           />
         </div>
       </div>
 
       <ContactInformation />
       <Skills />
-
-      <div className="overflow-hidden rounded-xl">
-        <Image
-          alt="Work Environment"
-          className="h-auto w-full object-cover"
-          height={2538}
-          src="https://res.cloudinary.com/dddrdmyfc/image/upload/v1765161081/3_tsdnzu.jpg"
-          width={3480}
-        />
-      </div>
 
       <Professional />
       <Achievements />
