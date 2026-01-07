@@ -11,7 +11,10 @@ export default function Page(): ReactNode {
   return (
     <div className="container space-y-12">
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-        <AboutMe />
+        <div className="flex flex-col gap-12">
+          <AboutMe />
+          <ContactInformation />
+        </div>
         <div className="overflow-hidden rounded-xl">
           {/* URL original respaldada: https://res.cloudinary.com/dddrdmyfc/image/upload/v1765161081/2_oj0n08.jpg */}
           <Image
@@ -24,9 +27,7 @@ export default function Page(): ReactNode {
         </div>
       </div>
 
-      <ContactInformation />
       <Skills />
-
       <Professional />
       <Achievements />
       <AdditionalInfo />
