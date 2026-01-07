@@ -1,5 +1,6 @@
 import { links } from '@config/links';
 import { personal } from '@content';
+import Link from 'next/link';
 import { ReactNode } from 'react';
 import { Button } from 'src/components/button/button';
 import { fullName } from 'src/helpers/utilities';
@@ -26,8 +27,18 @@ export default function Footer(): ReactNode {
           ))}
         </div>
 
-        <div>
-          Copyright © {new Date().getFullYear()} {fullName}
+        <div className="space-y-2">
+          <div>
+            Copyright © {new Date().getFullYear()} {fullName}
+          </div>
+          <div className="text-neutral-11 text-xs">
+            <Link
+              href="/disclaimer"
+              className="hover:text-neutral-12 transition-colors underline-offset-4 hover:underline"
+            >
+              Aviso legal
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
