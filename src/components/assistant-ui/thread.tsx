@@ -28,7 +28,7 @@ import { TooltipIconButton } from "./tooltip-icon-button";
 export const Thread: FC = () => {
   return (
     <ThreadPrimitive.Root
-      className="bg-white dark:bg-neutral-900 box-border flex h-full flex-col overflow-hidden"
+      className="bg-inherit text-inherit box-border flex h-full flex-col overflow-hidden"
       style={{
         ["--thread-max-width" as string]: "42rem",
       }}
@@ -77,10 +77,10 @@ const ThreadWelcome: FC = () => {
       <div className="flex w-full max-w-[var(--thread-max-width)] flex-grow flex-col">
         <div className="flex w-full flex-grow flex-col items-center justify-center">
           <div className="flex flex-col items-center space-y-4">
-            <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center">
-              <BotIcon className="w-8 h-8 text-white" />
+            <div className="w-16 h-16 bg-black dark:bg-white rounded-full flex items-center justify-center">
+              <BotIcon className="w-8 h-8 text-white dark:text-black" />
             </div>
-            <p className="font-medium px-6 text-center text-neutral-800 dark:text-neutral-200">
+            <p className="font-medium px-6 text-center text-neutral-900 dark:text-neutral-100">
               ¡Hola! Soy el asistente virtual de este CV.
               <br />
               Pregúntame lo que quieras saber sobre mi experiencia, habilidades o proyectos.
@@ -94,12 +94,12 @@ const ThreadWelcome: FC = () => {
 
 const Composer: FC = () => {
   return (
-    <ComposerPrimitive.Root className="focus-within:border-neutral-400 dark:focus-within:border-neutral-600 flex w-full flex-wrap items-end rounded-lg border bg-inherit px-2.5 shadow-sm transition-colors ease-in">
+    <ComposerPrimitive.Root className="focus-within:border-neutral-400 dark:focus-within:border-neutral-600 flex w-full flex-wrap items-end rounded-lg border bg-white dark:bg-neutral-900 px-2.5 shadow-sm transition-colors ease-in">
       <ComposerPrimitive.Input
         rows={1}
         autoFocus
         placeholder="Escribe tu pregunta..."
-        className="placeholder:text-neutral-500 max-h-40 flex-grow resize-none border-none bg-transparent px-2 py-4 text-sm outline-none focus:ring-0 disabled:cursor-not-allowed text-neutral-900 dark:text-neutral-100"
+        className="placeholder:text-neutral-500 dark:placeholder:text-neutral-400 max-h-40 flex-grow resize-none border-none bg-transparent px-2 py-4 text-sm outline-none focus:ring-0 disabled:cursor-not-allowed text-neutral-900 dark:text-neutral-100"
       />
       <ComposerAction />
     </ComposerPrimitive.Root>

@@ -29,7 +29,7 @@
   }
 }
 
-/* Animación de wiggle para el botón del asistente - fuera de @layer para mayor especificidad */
+/* Animación de wiggle para el botón del asistente */
 @keyframes skew-y-shaking {
   0% { transform: translate(0, 0) rotate(0deg) scale(1); }
   25% { transform: translate(5px, 5px) rotate(5deg) scale(1); }
@@ -41,4 +41,134 @@
 .animate-wiggle {
   animation: skew-y-shaking 2.25s infinite;
   will-change: transform;
+}
+
+/* Estilos del modal del asistente - forzar colores independientemente del contexto del body */
+.assistant-modal-content,
+.assistant-modal-content *:not(svg):not(path):not(line):not(circle):not(rect) {
+  background-color: white;
+  color: rgb(17, 24, 39); /* neutral-900 */
+  border-color: rgb(229, 231, 235); /* neutral-200 */
+}
+
+.dark .assistant-modal-content,
+.dark .assistant-modal-content *:not(svg):not(path):not(line):not(circle):not(rect) {
+  background-color: rgb(23, 23, 23); /* neutral-900 */
+  color: rgb(245, 245, 245); /* neutral-100 */
+  border-color: rgb(38, 38, 38); /* neutral-800 */
+}
+
+/* Asegurar que los SVGs tengan fondo transparente */
+.assistant-modal-content svg {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Excepciones para elementos que tienen su propio fondo/color específico */
+/* Círculo del bot - light mode: fondo negro */
+.assistant-modal-content [class*="bg-black"] {
+  background-color: rgb(0, 0, 0) !important;
+}
+
+/* Círculo del bot - dark mode: fondo blanco */
+.dark .assistant-modal-content [class*="bg-black"][class*="dark:bg-white"] {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+/* Icono del bot - light mode: blanco */
+.assistant-modal-content [class*="bg-black"] svg,
+.assistant-modal-content [class*="text-white"] {
+  color: rgb(255, 255, 255) !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.assistant-modal-content [class*="bg-black"] svg path,
+.assistant-modal-content [class*="bg-black"] svg line,
+.assistant-modal-content [class*="bg-black"] svg circle,
+.assistant-modal-content [class*="bg-black"] svg rect {
+  stroke: rgb(255, 255, 255) !important;
+  fill: none !important;
+}
+
+/* Icono del bot - dark mode: negro */
+.dark .assistant-modal-content [class*="bg-black"][class*="dark:bg-white"] svg,
+.dark .assistant-modal-content [class*="text-white"][class*="dark:text-black"] {
+  color: rgb(0, 0, 0) !important;
+  stroke: rgb(0, 0, 0) !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.dark .assistant-modal-content [class*="bg-black"][class*="dark:bg-white"] svg path,
+.dark .assistant-modal-content [class*="bg-black"][class*="dark:bg-white"] svg line,
+.dark .assistant-modal-content [class*="bg-black"][class*="dark:bg-white"] svg circle,
+.dark .assistant-modal-content [class*="bg-black"][class*="dark:bg-white"] svg rect {
+  stroke: rgb(0, 0, 0) !important;
+  fill: none !important;
+}
+
+/* Para otros elementos con bg-white */
+.assistant-modal-content [class*="bg-white"] {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.assistant-modal-content [class*="text-black"] {
+  color: rgb(0, 0, 0) !important;
+}
+
+/* Fondos específicos para mensajes */
+.assistant-modal-content [class*="bg-neutral-200"] {
+  background-color: rgb(229, 231, 235) !important;
+}
+
+.dark .assistant-modal-content [class*="bg-neutral-200"],
+.dark .assistant-modal-content [class*="dark:bg-neutral-800"] {
+  background-color: rgb(38, 38, 38) !important;
+}
+
+/* Asegurar que los formularios (composer) tengan el fondo y borde correctos */
+.assistant-modal-content form {
+  background-color: white !important;
+  border-color: rgb(212, 212, 212) !important;
+}
+
+.dark .assistant-modal-content form {
+  background-color: rgb(23, 23, 23) !important;
+  border-color: rgb(64, 64, 64) !important;
+}
+
+/* Input del composer */
+.assistant-modal-content form input,
+.assistant-modal-content form textarea {
+  background-color: transparent !important;
+  color: rgb(17, 24, 39) !important;
+}
+
+.dark .assistant-modal-content form input,
+.dark .assistant-modal-content form textarea {
+  background-color: transparent !important;
+  color: rgb(245, 245, 245) !important;
+}
+
+/* Placeholders del composer */
+.assistant-modal-content form ::placeholder {
+  color: rgb(115, 115, 115) !important; /* neutral-500 */
+}
+
+.dark .assistant-modal-content form ::placeholder {
+  color: rgb(163, 163, 163) !important; /* neutral-400 */
+}
+
+/* Botones del composer */
+.assistant-modal-content form button {
+  background-color: transparent !important;
+}
+
+.assistant-modal-content form button svg {
+  color: rgb(64, 64, 64) !important;
+}
+
+.dark .assistant-modal-content form button svg {
+  color: rgb(163, 163, 163) !important;
 }
