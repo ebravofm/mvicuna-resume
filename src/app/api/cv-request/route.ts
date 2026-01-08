@@ -9,15 +9,71 @@ const senderEmail = process.env.MAILERSEND_SENDER_EMAIL || '';
 const senderName = process.env.MAILERSEND_SENDER_NAME || 'CV Request';
 const recipientEmail = process.env.MAILERSEND_RECIPIENT_EMAIL || '';
 
+async function validateTurnstileToken(token: string, remoteip?: string): Promise<boolean> {
+  const secretKey = process.env.TURNSTILE_SECRET_KEY;
+  
+  if (!secretKey) {
+    console.error('TURNSTILE_SECRET_KEY no está configurada');
+    return false;
+  }
+
+  try {
+    const formData = new URLSearchParams();
+    formData.append('secret', secretKey);
+    formData.append('response', token);
+    if (remoteip) {
+      formData.append('remoteip', remoteip);
+    }
+
+    const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formData.toString(),
+    });
+
+    const data = await response.json();
+    return data.success === true;
+  } catch (error) {
+    console.error('Error validando token de Turnstile:', error);
+    return false;
+  }
+}
+
 export async function POST(request: Request): Promise<NextResponse> {
   try {
     const body = await request.json();
-    const { name, email, organization, role, reason } = body;
+    const { name, email, organization, role, reason, turnstileToken } = body;
 
     // Validación básica
     if (!name || !email || !reason) {
       return NextResponse.json(
         { error: 'Faltan campos requeridos' },
+        { status: 400 },
+      );
+    }
+
+    // Validar token de Turnstile
+    if (!turnstileToken) {
+      return NextResponse.json(
+        { error: 'Token de verificación faltante' },
+        { status: 400 },
+      );
+    }
+
+    // Obtener IP del cliente
+    const remoteip =
+      request.headers.get('CF-Connecting-IP') ||
+      request.headers.get('X-Forwarded-For')?.split(',')[0] ||
+      request.headers.get('X-Real-IP') ||
+      undefined;
+
+    const isValidToken = await validateTurnstileToken(turnstileToken, remoteip);
+
+    if (!isValidToken) {
+      return NextResponse.json(
+        { error: 'Verificación fallida. Por favor, intenta nuevamente.' },
         { status: 400 },
       );
     }

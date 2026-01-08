@@ -100,6 +100,8 @@ Regardless of where the app is deployed, it may need access to the following env
 - `MAILERSEND_SENDER_EMAIL` (required for CV request form): The email address that will send the CV request notifications (must be verified in MailerSend).
 - `MAILERSEND_SENDER_NAME` (optional): The display name for the sender email. Defaults to "CV Request".
 - `MAILERSEND_RECIPIENT_EMAIL` (required for CV request form): Your email address where CV request notifications will be sent.
+- `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (required for CV request form): Your Cloudflare Turnstile site key for silent CAPTCHA verification. Get it from [Cloudflare Dashboard](https://dash.cloudflare.com/?to=/:account/turnstile).
+- `TURNSTILE_SECRET_KEY` (required for CV request form): Your Cloudflare Turnstile secret key for server-side token validation. Keep this secret and never expose it to the client.
 
 ## Private Link
 

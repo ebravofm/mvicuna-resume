@@ -1,7 +1,8 @@
 'use client';
 
 import { DocumentIcon } from '@heroicons/react/24/solid';
-import { ReactNode, useState } from 'react';
+import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
+import { ReactNode, useRef, useState } from 'react';
 import { Button } from 'src/components/button/button';
 import { Heading } from 'src/components/heading/heading';
 
@@ -24,23 +25,81 @@ export default function CVRequestForm(): ReactNode {
     role: '',
     reason: '',
   });
+  const turnstileRef = useRef<TurnstileInstance>(null);
+  const turnstileTokenRef = useRef<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    turnstileTokenRef.current = null;
 
     try {
+      // Ejecutar Turnstile si está configurado
+      let turnstileToken: string | undefined;
+      
+      if (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && turnstileRef.current) {
+        try {
+          // Resetear el token anterior
+          turnstileRef.current.reset();
+          turnstileTokenRef.current = null;
+          
+          // Ejecutar Turnstile
+          turnstileRef.current.execute();
+          
+          // Esperar un momento para que el callback onSuccess pueda ejecutarse
+          await new Promise((resolve) => setTimeout(resolve, 100));
+          
+          // Si el callback ya proporcionó el token, usarlo
+          if (turnstileTokenRef.current) {
+            turnstileToken = turnstileTokenRef.current;
+          } else {
+            // Si no, esperar el token con timeout más largo (30 segundos)
+            // y polling cada 100ms
+            turnstileToken = await turnstileRef.current.getResponsePromise(30000, 100);
+            
+            // Si aún no tenemos token pero tenemos uno en el ref (de onSuccess), usarlo
+            if (!turnstileToken && turnstileTokenRef.current) {
+              turnstileToken = turnstileTokenRef.current;
+            }
+          }
+          
+          if (!turnstileToken) {
+            throw new Error('No se pudo obtener el token de verificación');
+          }
+        } catch (error) {
+          console.error('Error obteniendo token de Turnstile:', error);
+          // Si es un error de dominio no autorizado, mostrar mensaje más claro
+          if (error instanceof Error && error.message.includes('110200')) {
+            console.error(
+              '⚠️ Error 110200: El dominio no está autorizado. ' +
+              'Para desarrollo local, agrega "localhost" en Cloudflare Turnstile o usa la clave de prueba.'
+            );
+          }
+          setSubmitStatus('error');
+          setIsSubmitting(false);
+          turnstileRef.current?.reset();
+          turnstileTokenRef.current = null;
+          return;
+        }
+      } else if (!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) {
+        console.warn('NEXT_PUBLIC_TURNSTILE_SITE_KEY no está configurada');
+      }
+
       const response = await fetch('/api/cv-request', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          turnstileToken,
+        }),
       });
 
       if (!response.ok) {
-        throw new Error('Error al enviar la solicitud');
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Error al enviar la solicitud');
       }
 
       setSubmitStatus('success');
@@ -51,7 +110,11 @@ export default function CVRequestForm(): ReactNode {
         role: '',
         reason: '',
       });
-      
+
+      // Resetear Turnstile
+      turnstileRef.current?.reset();
+      turnstileTokenRef.current = null;
+
       // Cerrar el formulario después de 2 segundos
       setTimeout(() => {
         setIsOpen(false);
@@ -59,6 +122,9 @@ export default function CVRequestForm(): ReactNode {
       }, 2000);
     } catch (error) {
       setSubmitStatus('error');
+      // Resetear Turnstile en caso de error
+      turnstileRef.current?.reset();
+      turnstileTokenRef.current = null;
     } finally {
       setIsSubmitting(false);
     }
@@ -191,6 +257,47 @@ export default function CVRequestForm(): ReactNode {
               {submitStatus === 'error' && (
                 <div className="bg-danger-4 text-danger-11 rounded-md p-3 text-sm">
                   Error al enviar la solicitud. Por favor, intenta nuevamente.
+                </div>
+              )}
+
+              {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ? (
+                <Turnstile
+                  ref={turnstileRef}
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                  options={{
+                    size: 'invisible',
+                    execution: 'execute',
+                    appearance: 'execute',
+                    retry: 'auto',
+                    retryInterval: 3000,
+                  }}
+                  onSuccess={(token) => {
+                    console.log('Turnstile token obtenido exitosamente');
+                    turnstileTokenRef.current = token;
+                  }}
+                  onError={(error) => {
+                    console.error('Error en Turnstile:', error);
+                    // Error 110200: dominio no autorizado
+                    if (error === '110200') {
+                      console.error(
+                        '⚠️ Error 110200: El dominio no está autorizado en Cloudflare Turnstile. ' +
+                        'Agrega "localhost" (para desarrollo) o tu dominio en la configuración de Turnstile.'
+                      );
+                    }
+                    turnstileTokenRef.current = null;
+                  }}
+                  onExpire={() => {
+                    console.warn('Token de Turnstile expirado');
+                    turnstileTokenRef.current = null;
+                  }}
+                  onTimeout={() => {
+                    console.warn('Timeout en Turnstile');
+                    turnstileTokenRef.current = null;
+                  }}
+                />
+              ) : (
+                <div className="text-danger-11 text-xs">
+                  ⚠️ Turnstile no configurado (NEXT_PUBLIC_TURNSTILE_SITE_KEY faltante)
                 </div>
               )}
 
