@@ -2,7 +2,7 @@
 
 import { DocumentIcon } from '@heroicons/react/24/solid';
 import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
-import { ReactNode, useRef, useState } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { Button } from 'src/components/button/button';
 import { Heading } from 'src/components/heading/heading';
 
@@ -16,6 +16,7 @@ interface FormData {
 
 export default function CVRequestForm(): ReactNode {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState<FormData>({
@@ -27,6 +28,32 @@ export default function CVRequestForm(): ReactNode {
   });
   const turnstileRef = useRef<TurnstileInstance>(null);
   const turnstileTokenRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      // Pequeño delay para activar la animación después del montaje
+      requestAnimationFrame(() => {
+        setIsAnimating(true);
+      });
+    } else {
+      setIsAnimating(false);
+    }
+  }, [isOpen]);
+
+  const handleClose = () => {
+    setIsAnimating(false);
+    setTimeout(() => {
+      setIsOpen(false);
+      setSubmitStatus('idle');
+      setFormData({
+        name: '',
+        email: '',
+        organization: '',
+        role: '',
+        reason: '',
+      });
+    }, 500); // Esperar a que termine la animación de salida
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -117,8 +144,7 @@ export default function CVRequestForm(): ReactNode {
 
       // Cerrar el formulario después de 2 segundos
       setTimeout(() => {
-        setIsOpen(false);
-        setSubmitStatus('idle');
+        handleClose();
       }, 2000);
     } catch (error) {
       setSubmitStatus('error');
@@ -144,16 +170,20 @@ export default function CVRequestForm(): ReactNode {
 
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 transition-opacity duration-500 ease-out"
+          style={{ opacity: isAnimating ? 1 : 0 }}
           onClick={(e) => {
             if (e.target === e.currentTarget) {
-              setIsOpen(false);
-              setSubmitStatus('idle');
+              handleClose();
             }
           }}
         >
           <div
-            className="bg-neutral-1 border-neutral-6 w-full max-w-lg rounded-lg border p-6 shadow-lg"
+            className="bg-neutral-1 border-neutral-6 w-full max-w-lg rounded-lg border p-6 shadow-lg transition-all duration-500 ease-out"
+            style={{
+              opacity: isAnimating ? 1 : 0,
+              transform: isAnimating ? 'scale(1)' : 'scale(0.9)',
+            }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mb-4">
@@ -305,17 +335,7 @@ export default function CVRequestForm(): ReactNode {
                 <Button
                   type="button"
                   variant="outline"
-                  onClick={() => {
-                    setIsOpen(false);
-                    setSubmitStatus('idle');
-                    setFormData({
-                      name: '',
-                      email: '',
-                      organization: '',
-                      role: '',
-                      reason: '',
-                    });
-                  }}
+                  onClick={handleClose}
                   className="flex-1"
                 >
                   Cancelar
