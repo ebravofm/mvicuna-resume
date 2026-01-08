@@ -43,7 +43,16 @@ const AssistantModalButton = forwardRef<
       className={`size-full rounded-full shadow transition-transform hover:scale-110 active:scale-90 bg-black text-white hover:bg-neutral-800 ${state === "closed" ? "aui-button" : ""}`}
       ref={ref}
     >
-      <BotIcon data-state={state} className="absolute size-6 transition-all data-[state=closed]:rotate-0 data-[state=open]:rotate-90 data-[state=closed]:scale-100 data-[state=open]:scale-0" />
+      <div 
+        data-state={state || "closed"}
+        className="absolute size-6 flex items-center justify-center animate-wiggle"
+        style={state === "open" ? { animation: "none" } : undefined}
+      >
+        <BotIcon 
+          data-state={state || "closed"} 
+          className={`size-6 data-[state=closed]:rotate-0 data-[state=open]:rotate-90 data-[state=closed]:scale-100 data-[state=open]:scale-0 ${state === "open" ? "transition-all" : ""}`}
+        />
+      </div>
 
       <ChevronDownIcon
         data-state={state}
