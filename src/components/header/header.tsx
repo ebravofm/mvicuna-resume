@@ -2,7 +2,7 @@ import { personal } from '@content';
 import { ReactNode } from 'react';
 import AudioCVButton from 'src/components/audio/audio-cv-button';
 import { Heading } from 'src/components/heading/heading';
-import PDFDownloadButton from 'src/components/pdf/pdf-download-button';
+import CVRequestForm from 'src/components/pdf/cv-request-form';
 import { ThemeToggle } from 'src/components/theme-toggle/theme-toggle';
 import { fullName } from 'src/helpers/utilities';
 
@@ -19,7 +19,7 @@ export default function Header(): ReactNode {
           </div>
           <div className="flex flex-col items-center gap-4 md:items-start">
             <div className="flex flex-col gap-4 w-full">
-              <PDFDownloadButton />
+              <CVRequestForm />
               <AudioCVButton />
             </div>
             {/* <ThemeToggle

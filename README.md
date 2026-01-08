@@ -96,6 +96,10 @@ Although the mock files should be pretty self-explanatory, you can view the [Con
 Regardless of where the app is deployed, it may need access to the following environment variables:
 
 - `PRIVATE_KEY` (optional): this is a code, determined by the author, which will provide URL access to a version of the résumé that includes private information. We recommend generating this code (e.g. a UUID or using a password generator).
+- `MAILERSEND_API_KEY` (required for CV request form): Your MailerSend API key for sending email notifications when someone requests your CV.
+- `MAILERSEND_SENDER_EMAIL` (required for CV request form): The email address that will send the CV request notifications (must be verified in MailerSend).
+- `MAILERSEND_SENDER_NAME` (optional): The display name for the sender email. Defaults to "CV Request".
+- `MAILERSEND_RECIPIENT_EMAIL` (required for CV request form): Your email address where CV request notifications will be sent.
 
 ## Private Link
 
