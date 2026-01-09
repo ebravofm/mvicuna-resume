@@ -37,6 +37,8 @@ export default function ContactInformation({
             <a
               className="text-link inline-flex items-center gap-2"
               href={personal.linkedInUrl}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <SiLinkedIn size="1em" /> LinkedIn
             </a>

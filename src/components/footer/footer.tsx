@@ -17,7 +17,7 @@ export default function Footer(): ReactNode {
               key={link.title}
               size="icon"
             >
-              <a href={link.href}>
+              <a href={link.href} target="_blank" rel="noopener noreferrer">
                 <span className="sr-only">
                   {personal.givenName} on {link.title}
                 </span>
