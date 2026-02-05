@@ -1,9 +1,11 @@
-import { links } from '@config/links';
+import { links as configLinks } from '@config/links';
 import { personal } from '@content';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import { Button } from 'src/components/button/button';
 import { fullName } from 'src/helpers/utilities';
+
+const links = Array.isArray(configLinks) ? configLinks : [];
 
 export default function Footer(): ReactNode {
   return (
@@ -18,8 +20,8 @@ export default function Footer(): ReactNode {
               size="icon"
             >
               <a href={link.href} target="_blank" rel="noopener noreferrer">
-                <span className="sr-only">
-                  {personal.givenName} on {link.title}
+<span className="sr-only">
+                {personal?.givenName ?? ''} on {link.title}
                 </span>
                 <link.icon aria-hidden size={18} />
               </a>
