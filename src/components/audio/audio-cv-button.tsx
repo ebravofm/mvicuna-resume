@@ -29,7 +29,7 @@ export default function AudioCVButton(): ReactNode {
       />
       <Button onClick={togglePlay} size="lg">
         {isPlaying ? <PauseIcon /> : <PlayIcon />}
-        {isPlaying ? 'Pausar Audio CV' : 'Escuchar Audio CV'}
+        {isPlaying ? 'Pausar Sobre mi (Audio)' : 'Sobre mi (Audio)'}
       </Button>
     </>
   );

@@ -165,7 +165,7 @@ export default function CVRequestForm(): ReactNode {
     <>
       <Button onClick={() => setIsOpen(true)} size="lg">
         <DocumentIcon />
-        Solicitar CV
+        Contacto
       </Button>
 
       {isOpen && (
@@ -188,13 +188,13 @@ export default function CVRequestForm(): ReactNode {
           >
             <div className="mb-4">
               <Heading level={2} className="mb-2">
-                Solicitar CV
+                Contacto
               </Heading>
               <p className="text-neutral-11 text-sm">
-                Si deseas recibir mi CV actualizado, completa el siguiente formulario. Revisaré tu solicitud y te responderé directamente por correo.
+                Si deseas comunicarte conmigo, completa el siguiente formulario. Revisaré tu solicitud y te responderé directamente por correo.
               </p>
               <p className="text-neutral-11 mt-2 text-sm italic">
-                If you'd like to receive my updated résumé, please complete the form below. I'll review your request and get back to you directly by email.
+                If you'd like to get in touch with me, please complete the form below. I'll review your request and get back to you directly by email.
               </p>
             </div>
 
