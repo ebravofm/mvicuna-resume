@@ -7,7 +7,7 @@
     "url": "https://colinhemphill.com"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^2.0.79",
+    "@ai-sdk/openai": "2.0.79",
     "@assistant-ui/react": "0.11.47",
     "@assistant-ui/react-ai-sdk": "1.1.16",
     "@assistant-ui/react-ai-sdk-v4": "0.0.1",
@@ -72,7 +72,10 @@
   ],
   "license": "MIT",
   "overrides": {
-    "@types/react": "19.2.2"
+    "@types/react": "19.2.2",
+    "ai": "5.0.108",
+    "@assistant-ui/react": "0.11.47",
+    "@assistant-ui/react-ai-sdk": "1.1.16"
   },
   "scripts": {
     "build": "contentlayer2 build && next build",
